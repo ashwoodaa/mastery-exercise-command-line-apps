@@ -34,7 +34,7 @@ Enter screen name
 
 ### Select User
 ```bash
-Which user is chriping?
+Which user is chirping?
 1. Tweedleedee
 2. BiffBoffin
 ...
