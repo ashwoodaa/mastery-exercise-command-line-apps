@@ -14,10 +14,9 @@ Create a series of prompts for users to create and reply to messages in a twitte
 #########################################
 1. New User Account
 2. Select User
-3. View Chirps
-4. Public Chirp
-5. Private Chirp
-6. Exit
+3. Chirp
+4. View Chirps
+5. Exit
 >
 ```
 
@@ -43,22 +42,20 @@ Which user is chirping?
 
 
 ### View Chirps
-Chirps are separated into public and private chirps.  Only the two users involved in a private chirp can see it in their Private Chirps section.
+
+Display all chirps in a numbered list. Consider the use of `enumerate()`.
+
 ```bash
-<< Private Chirps >>
 1. BiffBoffin: Hey, you up for ping...
 2. Lara_keet: Any idea what Jeff wa...
 3. BiffBoffin: Hah, you got wrecked...
-<< Public Chirps >>
-4. Tweedleedee: Anybody know a good...
-5. Fuzzy: Do NOT try the mega ultra...
-6. Velton32: You guys have got to s...
 ...
 9. Main Menu
 >
 ```
 
-Selecting an individual chirp takes you to that chirp's comment thread.
+Selecting an individual chirp takes you to that chirp's comment thread. Consider the fact that the chirps must be displayed in the order in which they were created, so you will need an ordered collection.
+
 ```bash
 Tweedleedee: Anybody know a good Thai restaraunt in the area?
 Fuzzy: Smiling Elephant is really good
@@ -69,29 +66,12 @@ BiffBoffin: The pad krapow is amazing!
 >
 ```
 
-
 ### New Chirp
-Users can chirp publicly or they can start a private chirp with another user.
 
-#### Public
 ```bash
 Enter chirp text
 >
 ```
-
-#### Private
-```bash
-Chirp at
-1. BiffBoffin
-2. Lara_keet
-...
-9. Cancel
->
-
-Enter chirp text
->
-```
-
 
 # Requirements
 
@@ -103,24 +83,21 @@ Enter chirp text
 3. Chirps will be stored in a text file and should contain at minimum
   - A chirp ID number
   - Who authored the chirp
-  - Is this a public or private chirp
-  - Who the chirp is to (if applicable)
   - The text content of the chirp
 
-### Challenge
-[Serialize](https://docs.python.org/3.3/library/pickle.html) the user and chirp data before storage & deserialize on read.
 
-# References
+# How to get started
 
-## How to get started
-
-1. Tests first!
+1. Design first. Identify the objects involved in the application (e.g. users, chirps, and conversations) and decide what classes you will need.
+1. Write tests for creation of required objects, and verify their properties and behavior.
 1. You can use `input()` and `print()` to show prompts and read user input.
 1. You know how to use [`open()`, `readline()` and `write()`](https://docs.python.org/3.3/tutorial/inputoutput.html#reading-and-writing-files) to maniuplate data in text files.
-1. You will be using [CSV](https://docs.python.org/3.3/library/csv.html) files for data storage. All you need to do is read the contents of the file, and `split` the values on a comma.
+1. [Serialize](https://docs.python.org/3.3/library/pickle.html) the user and chirp data before storage & deserialize on read.
 1. You can write conditional logic with `if`
 
-Start with the basics
+## UI Basics
+
+> Define your classes and test their properties and behavior before writing UI code.
 
 1. Show the main menu and read the user's choice with an `input()`.
 1. Based on the user's choice, `print()` their choice, i.e. "You chose to make a new chirp."
