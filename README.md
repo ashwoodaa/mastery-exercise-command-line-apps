@@ -45,6 +45,8 @@ Which user is chirping?
 
 Display all chirps in a numbered list. Consider the use of `enumerate()`. Only display the first 20 characters of the chirp in this list. Consider the fact that the chirps must be displayed in the order in which they were created, so you will need an ordered collection.
 
+The chirp message must be preceded by the screen name of the user who created it.
+
 ```bash
 1. BiffBoffin: Hey, you up for ping...
 2. Lara_keet: Any idea what Jeff wa...
