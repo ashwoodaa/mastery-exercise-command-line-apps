@@ -5,7 +5,7 @@ In this app, users will create and read public and private messages via terminal
 
 ## Instructions
 
-Create a series of prompts for users to create and reply to messages in a twitter/message board hybrid.
+Create a series of prompts for a user interface that allows people to create an account and then create messages in a twitter/message board hybrid. You will be using serialization via pickle to store the users and the chirps to disk so that they persist between execution of the main application.
 
 ### Main Menu
 ```bash
@@ -43,7 +43,7 @@ Which user is chirping?
 
 ### View Chirps
 
-Display all chirps in a numbered list. Consider the use of `enumerate()`.
+Display all chirps in a numbered list. Consider the use of `enumerate()`. Only display the first 20 characters of the chirp in this list. Consider the fact that the chirps must be displayed in the order in which they were created, so you will need an ordered collection.
 
 ```bash
 1. BiffBoffin: Hey, you up for ping...
@@ -54,16 +54,12 @@ Display all chirps in a numbered list. Consider the use of `enumerate()`.
 >
 ```
 
-Selecting an individual chirp takes you to that chirp's comment thread. Consider the fact that the chirps must be displayed in the order in which they were created, so you will need an ordered collection.
+Selecting an individual chirp takes you to that chirp's full text. If the user chose Chirp #1 from above, then the output would be as follows.
 
 ```bash
-Tweedleedee: Anybody know a good Thai restaraunt in the area?
-Fuzzy: Smiling Elephant is really good
-BiffBoffin: The pad krapow is amazing!
-...
-1. Reply
-2. Back
->
+BiffBoffin: Hey, you up for ping pong later this afternoon? I'm feeling a bit rusty.
+
+< Press enter to return to list of chirps >
 ```
 
 ### New Chirp
@@ -76,24 +72,24 @@ Enter chirp text
 # Requirements
 
 1. A full test suite with full coverage of all methods
-2. User data will be stored in a text file and should contain at minimum
-  - A user ID number
+2. User data will be serialized to a file (name of your choosing) and should contain the following information, at minimum:
+  - A unique identifier
   - Screen name
   - Full name
-3. Chirps will be stored in a text file and should contain at minimum
-  - A chirp ID number
+3. Chirps will be serialized to a file (name of your choosing) and should contain the following information, at minimum
+  - A unique identifier
   - Who authored the chirp
   - The text content of the chirp
 
 
 # How to get started
 
-1. Design first. Identify the objects involved in the application (e.g. users, chirps, and conversations) and decide what classes you will need.
+1. Design first. Identify the objects involved in the application and decide what classes you will need.
+1. The information is related to each other, so think about how you will connect the users and chirps together.
 1. Write tests for creation of required objects, and verify their properties and behavior.
 1. You can use `input()` and `print()` to show prompts and read user input.
-1. You know how to use [`open()`, `readline()` and `write()`](https://docs.python.org/3.3/tutorial/inputoutput.html#reading-and-writing-files) to maniuplate data in text files.
+1. You know how to use [`open()`, `readline()` and `write()`](https://docs.python.org/3.3/tutorial/inputoutput.html#reading-and-writing-files) to manipulate data in text files.
 1. [Serialize](https://docs.python.org/3.3/library/pickle.html) the user and chirp data before storage & deserialize on read.
-1. You can write conditional logic with `if`
 
 ## UI Basics
 
